@@ -16,15 +16,11 @@ public class Drone {
 	public int getX() {
 		return x;
 	}
-	public void setX(int x) {
-		this.x = x;
-	}
+	
 	public int getY() {
 		return y;
 	}
-	public void setY(int y) {
-		this.y = y;
-	}
+	
 	public Cardinal getCardinal() {
 		return cardinal;
 	}
@@ -35,9 +31,4 @@ public class Drone {
 	public String getPosition() {
 		return "(" + this.x + ", " + this.y + ") dirección " + this.cardinal.getCardinal();				
 	}
-	
-	@Override
-	public String toString() {
-		return "Dron [x=" + x + ", y=" + y + ", cardinal=" + cardinal + "]";
-	}	
 }

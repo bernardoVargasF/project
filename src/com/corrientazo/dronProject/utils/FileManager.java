@@ -9,10 +9,11 @@ import java.util.Scanner;
 
 public class FileManager {
 	
-	public ArrayList<String> readFile(String path, String fileName) {
+	public static ArrayList<String> readFile(String path, String fileName) {
 		ArrayList<String> list = new ArrayList<String>();
 		try {
 			File file = new File(path + fileName);
+//			System.out.println("Read file path: " + file.getAbsolutePath());
 			Scanner scanner = new Scanner(file);
 			while(scanner.hasNextLine()) {
 				list.add(scanner.nextLine());
@@ -25,11 +26,12 @@ public class FileManager {
 		return list;
 	}
 	
-	public void writeFile(String path, String fileName, ArrayList<String> fullReport) {
+	public static void writeFile(String path, String fileName, ArrayList<String> fullReport) {
 		try {
 			File reportFile = new File(path + fileName);
 			reportFile.createNewFile();
 			FileWriter fileWriter = new FileWriter(reportFile);
+//			System.out.println("Write file path: " + reportFile.getAbsolutePath());
 			fileWriter.write("== Reporte de entregas == \n");				
 			for(String report : fullReport) {
 				fileWriter.write(report);				
@@ -42,7 +44,7 @@ public class FileManager {
 		}
 	}
 	
-	public String fileNameIterator(int numFile, String file) {
+	public static String fileNameIterator(int numFile, String file) {
 		return numFile < 10?
 				file.replaceAll("#", "0" + Integer.toString(numFile)):
 				file.replaceAll("#", Integer.toString(numFile));

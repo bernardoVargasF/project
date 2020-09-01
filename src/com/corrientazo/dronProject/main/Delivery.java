@@ -9,34 +9,33 @@ import com.corrientazo.dronProject.utils.Constants;
 import com.corrientazo.dronProject.utils.FileManager;
 
 public class Delivery {
-	FileManager fileManager = new FileManager();
 	
-	public HashMap<Integer, ArrayList<String>> getRoutes() {
-		HashMap<Integer, ArrayList<String>> routes = new HashMap<Integer, ArrayList<String>>();
-		ArrayList<String> route = new ArrayList<String>();
+	public HashMap<Integer, ArrayList<String>> getDronesRoutes() {
+		HashMap<Integer, ArrayList<String>> dronesRoutes = new HashMap<Integer, ArrayList<String>>();
+		ArrayList<String> routes = new ArrayList<String>();
 		String routesPath = Constants.ROUTES_PATH;
 		String routesFile = Constants.ROUTES_FILE_NAME;
 		String fileName;
 		for(int i = 1; i <= Constants.MAX_DRONES; i++) {
-			fileName = fileManager.fileNameIterator(i, routesFile);
-			route = fileManager.readFile(routesPath, fileName);
-			System.out.println("Num dron: " + i + ", archivo: " + route.toString());
-			routes.put(i, route);
+			fileName = FileManager.fileNameIterator(i, routesFile);
+			routes = FileManager.readFile(routesPath, fileName);
+//			System.out.println("Num dron: " + i + ", archivo: " + routes.toString());
+			dronesRoutes.put(i, routes);
 		}
-		return routes;
+		return dronesRoutes;
 	}
 	
-	public void deliveryReport(ArrayList<String> drones) {
+	public void deliveryReport(HashMap<Integer, ArrayList<String>> deliveries) {
 		String reportPath = Constants.REPORTS_PATH;
 		String reportFile = Constants.REPORT_FILE_NAME;
 		String fileName;
 		for(int i = 1; i<= Constants.MAX_DRONES; i++) {
-			fileName = fileManager.fileNameIterator(i, reportFile);			
-			fileManager.writeFile(reportPath, fileName, drones);
+			fileName = FileManager.fileNameIterator(i, reportFile);			
+			FileManager.writeFile(reportPath, fileName, deliveries.get(i));
 		}
 	}
 	
-	public Drone getDeliveryPosition(Drone initDrone, String deliveryString) {
+	public Drone getDeliveredPosition(Drone initDrone, String deliveryString) {
 		int x = initDrone.getX();
 		int y = initDrone.getY();
 		Cardinal currentCardinal = initDrone.getCardinal();
@@ -87,18 +86,7 @@ public class Delivery {
 				// TODO error
 			}
 		}
-		Drone deliveryPosition = new Drone(x, y, currentCardinal);
-		return deliveryPosition;
+		Drone deliveredPosition = new Drone(x, y, currentCardinal);
+		return deliveredPosition;
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		Delivery delivery = new Delivery();
-//		delivery.getRoutes();
-//		
-//		delivery.deliveryReport(drones);
-		
-		
-	}
-
 }
