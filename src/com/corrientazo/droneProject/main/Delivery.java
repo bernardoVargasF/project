@@ -19,7 +19,6 @@ public class Delivery {
 		for(int i = 1; i <= Constants.MAX_DRONES; i++) {
 			fileName = FileManager.fileNameIterator(i, routesFile);
 			routes = FileManager.readFile(routesPath, fileName);
-//			System.out.println("Num dron: " + i + ", archivo: " + routes.toString());
 			dronesRoutes.put(i, routes);
 		}
 		return dronesRoutes;
