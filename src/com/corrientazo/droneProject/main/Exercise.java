@@ -1,10 +1,10 @@
-package com.corrientazo.dronProject.main;
+package com.corrientazo.droneProject.main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.corrientazo.dronProject.entities.Drone;
-import com.corrientazo.dronProject.utils.Cardinal;
+import com.corrientazo.droneProject.entities.Drone;
+import com.corrientazo.droneProject.utils.Cardinal;
 
 public class Exercise {
 

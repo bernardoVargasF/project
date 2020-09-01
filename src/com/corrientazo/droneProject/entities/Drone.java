@@ -1,6 +1,6 @@
-package com.corrientazo.dronProject.entities;
+package com.corrientazo.droneProject.entities;
 
-import com.corrientazo.dronProject.utils.Cardinal;
+import com.corrientazo.droneProject.utils.Cardinal;
 
 public class Drone {
 	private int x;
