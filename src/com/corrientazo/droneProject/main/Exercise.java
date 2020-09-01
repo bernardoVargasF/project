@@ -8,7 +8,7 @@ import com.corrientazo.droneProject.utils.Cardinal;
 
 public class Exercise {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Delivery delivery = new Delivery();
 		HashMap<Integer, ArrayList<String>> dronesRoutes = delivery.getDronesRoutes();
 		HashMap<Integer, ArrayList<String>> dronesDeliveries = new HashMap<Integer, ArrayList<String>>();
@@ -16,7 +16,7 @@ public class Exercise {
 		for(int i = 1; i <= dronesRoutes.size(); i++) {
 			ArrayList<String> deliveries = new ArrayList<String>();
 			for(String route : dronesRoutes.get(i)) {
-				deliveryDrone = delivery.getDeliveredPosition(deliveryDrone, route);
+				deliveryDrone = delivery.getDeliveredPosition(deliveryDrone, route, i);
 				deliveries.add(deliveryDrone.getPosition());
 			}
 			dronesDeliveries.put(i, deliveries);

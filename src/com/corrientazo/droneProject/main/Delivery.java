@@ -34,7 +34,7 @@ public class Delivery {
 		}
 	}
 	
-	public Drone getDeliveredPosition(Drone initDrone, String deliveryString) {
+	public Drone getDeliveredPosition(Drone initDrone, String deliveryString, int fileNumber) throws Exception {
 		int x = initDrone.getX();
 		int y = initDrone.getY();
 		Cardinal currentCardinal = initDrone.getCardinal();
@@ -46,6 +46,10 @@ public class Delivery {
 				if(currentCardinal.equals(Cardinal.SUR)) y-=1;
 				if(currentCardinal.equals(Cardinal.OCCIDENTE)) x-=1;
 				if(currentCardinal.equals(Cardinal.ORIENTE)) x+=1;
+				if(x > Constants.MAX_BLOCKS || x < -(Constants.MAX_BLOCKS) || 
+						y > Constants.MAX_BLOCKS || y < -(Constants.MAX_BLOCKS )) {
+					throw new Exception("Maximum number of blocks exceeded in file number: " + fileNumber);
+				}
 				break;
 			case 'I':
 				if(currentCardinal.equals(Cardinal.NORTE)) {
@@ -82,7 +86,8 @@ public class Delivery {
 					break;
 				};
 			default:
-				// TODO error
+				throw new Exception("Incorrect step for the route: " + step + " in route: " + 
+						deliveryString + "on file number: " + fileNumber);
 			}
 		}
 		Drone deliveredPosition = new Drone(x, y, currentCardinal);
