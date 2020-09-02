@@ -24,6 +24,7 @@ public class Exercise {
 		}
 		
 		delivery.deliveryReport(dronesDeliveries);
+		System.out.println("Done!");
 	}
 
 }

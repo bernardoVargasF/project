@@ -87,7 +87,7 @@ public class Delivery {
 				};
 			default:
 				throw new Exception("Incorrect step for the route: " + step + " in route: " + 
-						deliveryString + "on file number: " + fileNumber);
+						deliveryString + " on file number: " + fileNumber);
 			}
 		}
 		Drone deliveredPosition = new Drone(x, y, currentCardinal);
