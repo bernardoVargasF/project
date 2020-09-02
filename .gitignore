@@ -1,4 +1,3 @@
-
 bin/com/corrientazo/droneProject/entities/Drone.class
 bin/com/corrientazo/droneProject/main/Delivery.class
 bin/com/corrientazo/droneProject/main/Exercise.class
@@ -19,3 +18,6 @@ src/com/corrientazo/droneProject/utils/reports/out01.txt
 src/com/corrientazo/droneProject/utils/reports/out02.txt
 src/com/corrientazo/droneProject/utils/reports/out03.txt
 src/com/corrientazo/droneProject/utils/reports/out04.txt
+src/com/corrientazo/droneProject/utils/reports/out05.txt
+src/com/corrientazo/droneProject/utils/reports/out06.txt
+
